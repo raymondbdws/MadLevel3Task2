@@ -5,19 +5,23 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_portals.*
 
-class PortalsFragment : Fragment(){
+/**
+ * @author Raymond Chang
+ *
+ * We use this class to handle data from AddPortalFragment and display its values on PortalsFragment.
+ */
+class PortalsFragment : Fragment() {
     private val portals = arrayListOf<Portal>()
     private val portalAdapter = PortalAdapter(portals)
 
+    /**
+     * runs when PortalsFragment view is being created.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,14 +37,22 @@ class PortalsFragment : Fragment(){
         observeAddPortalResult()
     }
 
+    /**
+     * Initialize view
+     */
     private fun initViews() {
 
-        //Linear? aanpassen?
         rvPortal.layoutManager =
             GridLayoutManager(context, 2)
         rvPortal.adapter = portalAdapter
     }
 
+    /**
+     * Observe Results. When data has been received, it will put the value in local variables.
+     *
+     * There are 2 difference variables: name and url. At the end, we will create a portalobject
+     * and put it in the portals list.
+     */
     private fun observeAddPortalResult() {
         var name = ""
         var url = ""
@@ -58,7 +70,5 @@ class PortalsFragment : Fragment(){
             portals.add(portal)
             portalAdapter.notifyDataSetChanged()
         }
-
-
     }
 }

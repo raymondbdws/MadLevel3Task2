@@ -1,0 +1,17 @@
+Which stages of an activity lifecycle exists?
+onCreate, onStart, onResume, onPause, onStop, onDestroy
+
+Which are the two kind of intents, and what is the difference?
+intent is a messaging object. 
+
+Explicit intents:
+Implicit intents:
+
+What is the difference between Parcelables and Serializables?
+Parelables is faster than serializables
+serializable = persisting object memory in to bits?
+
+
+What is the purpose of the analyzer?
+
+ to get an overview of your code for eg. display common typo's
