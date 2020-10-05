@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * runs when MainActivity is being created.
-     */
+    */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
